@@ -24,7 +24,7 @@ int main()
 	{
 		case 1:owner();break;
 		case 2:mode();break;
-		case 3:exit_function();break;
+		case 3:return 0;break;
 		default :printf("press the correct number\n");break;
 	}
 
@@ -60,7 +60,7 @@ printf("Insert the directory");
 scanf("%s",dir);
 
 snprintf(mmain, 100, "%s%s%s%s%s%s","sudo chown " , user,":" ,group," ",dir);
-snprintf(ls ,100, "%s%s%s%s%s%s","ls " , user,":" ,group," ",dir);
+
 
 system(mmain);
 if(system(mmain)){
@@ -99,22 +99,25 @@ strcat(Dir,dir);
 }
 void mode()
 {
-	 char filename[25];
-	 char user_name[25];
+	 char filename[23];
+	 //char user_name[25];
+	 char mode[9];
+	 char mmain[100];
 
 
 
-	printf("enter file name \n");
-    
-	//scanf("%s",filename);
-	printf("Enter user name \n");
-	scanf("%s",user_name);
-	//printf("\n", );
-	//snprintf(ls ,100, "%s%s%s%s%s%s","ls " , user,":" ,group," ",dir);
+	printf("enter file directoryr\n");
+
+  scanf("%s",filename);
+
+printf("Enter the mode \n" );
+    scanf("%s",mode);	
+
+	snprintf(mmain,100, "%s%s%s%s","sudo chmod  " ,mode," ",filename);
+	printf("%s\n",mmain );
+	system(mmain);
 
 }
-void exit_function()
-{
-	printf("Exit \n");
 
-}
+
+

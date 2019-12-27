@@ -36,11 +36,13 @@ int main()
 void owner()
 {
 	char dir[25];
+	char path[25];
 	char user[25];
 	char group[25];
 	int ch;
 	char mmain[300];
-	char ls[50];
+	char find[35];
+	
 	//printf("owner \n");
 		system("cd ~");
 		system("pwd");
@@ -53,19 +55,21 @@ system("cat /etc/passwd | cut -d \":\" -f1  ");
 printf(" Enter the user  \n" );
 scanf("%s",user);
 
-system("cat /etc/group "  );
-printf(" Enter the group   \n" );
+system("cat /etc/group : "  );
+printf(" Enter the group  : \n" );
 scanf("%s",group);
-printf("Insert the directory");
+printf("Enter the file or folder : ");
 scanf("%s",dir);
+snprintf(find, 100, "%s%s","realpath  " , dir );
+system(find);
+printf("\n Enter the path starting from the Desktop like ~/Desktop ... \n");
+scanf("%s",path);
 
-snprintf(mmain, 100, "%s%s%s%s%s%s","sudo chown " , user,":" ,group," ",dir);
+snprintf(mmain, 100, "%s%s%s%s%s%s","sudo chown " , user,":" ,group," " , path );
 
-
+printf("%s\n",mmain );
 system(mmain);
-if(system(mmain)){
-	system(ls);
-}
+
 
 		}else if(ch == 2){
 printf("user\n" );

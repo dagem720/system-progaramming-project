@@ -35,6 +35,7 @@ int main()
 }
 void owner()
 {
+	system("clear");
 	char dir[25];
 	char path[25];
 	char user[25];
@@ -47,9 +48,10 @@ void owner()
 		system("cd ~");
 		system("pwd");
 
-		printf("1.Change user ownership and group ownership \n 2.Change user ownership \n 3.Change group ownership \n\n" );
+		printf("1.Change user ownership and group ownership \n2.Change group ownership \n\n" );
 		scanf("%d", &ch);
 		if(ch==1){
+			system("clear");
 printf("Users  \n" );
 system("cat /etc/passwd | cut -d \":\" -f1  ");
 printf(" Enter the user  \n" );
@@ -58,10 +60,7 @@ scanf("%s",user);
 system("cat /etc/group : "  );
 printf(" Enter the group  : \n" );
 scanf("%s",group);
-printf("Enter the file or folder : ");
-scanf("%s",dir);
-snprintf(find, 100, "%s%s","realpath  " , dir );
-system(find);
+
 printf("\n Enter the path starting from the Desktop like ~/Desktop ... \n");
 scanf("%s",path);
 
@@ -71,34 +70,28 @@ printf("%s\n",mmain );
 system(mmain);
 
 
-		}else if(ch == 2){
-printf("user\n" );
 		}
-		else if(ch==3){
-printf("group\n" );
+		else if(ch==2){
+			system("clear");
+			system("cat /etc/group | cut -d \":\" -f1 \n"  );
+printf(" Enter the group  : \n" );
+
+scanf("%s",group);
+printf("\n Enter the path starting from the Desktop like ~/Desktop ... \n");
+scanf("%s",path);
+printf("%s /n" , group);
+snprintf(mmain, 150, "%s%s%s%s%s","sudo chown" , " :",group ,"  ", path );
+printf("%s\n",mmain );
+system(mmain);
 		}else{
 printf("else\n" );
 		}
 
-	printf("enter the file directory\n");
 
-	fgets(dir,100,stdin);
-	printf("Enter the user who wents to won the data\n");
-
-	fgets(user,100,stdin);
 	
 	
 
 	
-	char Dir[200]="chown ";
-	strcat(Dir,user);
-strcat(Dir," ");
-strcat(Dir,dir);
-	printf("%s\n",Dir );
-
-		
-   //execl("/bin/bash","-c","ls");
-	//system("cd dir");
 
 }
 void mode()
@@ -109,7 +102,7 @@ void mode()
 	 char mmain[100];
 
 
-
+system("clear");
 	printf("enter file directoryr\n");
 
   scanf("%s",filename);
